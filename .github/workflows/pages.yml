@@ -1,0 +1,53 @@
+name: Deploy lab website to GitHub Pages
+
+# Nothing is published by saving this file locally. Enable GitHub Pages with
+# source "GitHub Actions", then explicitly run this workflow when ready.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Read configured Pages address
+        id: pages
+        uses: actions/configure-pages@v6
+      - name: Prepare public files for the actual address
+        env:
+          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: node tools/prepare-deploy.mjs "$PAGES_BASE_URL" --output dist
+      - name: Upload public files only
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v5
