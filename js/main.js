@@ -206,7 +206,7 @@
     </article>`).join("") : `
     <div class="empty-state reveal">
       <h3>${bi("구성원 정보를 준비 중입니다", "Member profiles are being prepared")}</h3>
-      <p>${bi("연구 참여에 관심이 있으시면 아래 모집 안내를 참고해 주세요.", "Please see the information below if you are interested in joining the lab.")}</p>
+      <p>${bi("연구실 관련 문의는 연락처 페이지를 참고해 주세요.", "Please visit the Contact page for lab inquiries.")}</p>
     </div>`;
 
   setLang(initialLang);
