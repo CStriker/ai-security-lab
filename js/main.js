@@ -133,8 +133,7 @@
     </article>`).join("");
 
   const publications = typeof PUBLICATIONS !== "undefined" ? PUBLICATIONS : [];
-  // Some newly accepted papers are counted but announced only in News until
-  // their full publication details are ready for the selected-paper list.
+  // A paper can remain in News while still counting in publication totals.
   const listedPublications = publications.filter((item) => item.showInPublications !== false);
   const patents = typeof PATENTS !== "undefined" ? PATENTS : [];
   const publicationList = document.querySelector('[data-render="pub-list"]');
@@ -153,7 +152,7 @@
               <div class="pub-venue"><span class="publication-venue-name">${escapeHtml(item.venue)}</span>
                 <div class="publication-meta"><span class="tag publication-status">${item.status === "accepted" ? bi("채택", "Accepted") : bi("게재", "Published")}</span>
                   ${noteKo || noteEn ? `<span class="publication-note">${bi(noteKo, noteEn)}</span>` : ""}</div>
-                ${externalLink(item.link, item.linkLabel || "논문", item.linkLabel || "Paper")}
+                ${item.link ? externalLink(item.link, item.linkLabel || "논문", item.linkLabel || "Paper") : ""}
               </div>
             </div>
           </article>`;

@@ -55,16 +55,6 @@ const NEWS = [
     bodyKo: "김현준 교수가 2026년 3월 1일 명지대학교 컴퓨터정보통신공학부 조교수로 부임하였습니다.",
     bodyEn: "Prof. Hyunjun Kim joined the Dept. of Computer, Information and Communications Engineering at Myongji University as Assistant Professor on March 1, 2026.",
   },
-  {
-    id: "recruitment-2026",
-    date: "2026-03-01",
-    tagKo: "모집",
-    tagEn: "Recruiting",
-    titleKo: "2026학년도 학부연구생 모집",
-    titleEn: "Undergraduate Researcher Recruitment for 2026",
-    bodyKo: "AI 에이전트를 활용한 보안 작업 수행(AI for Security)과 AI 에이전트 자체의 보안 강화(Security for AI)를 함께 연구할 학부연구생을 모집합니다.",
-    bodyEn: "We are recruiting undergraduate researchers interested in using AI agents to perform security tasks (AI for Security) and securing AI agents themselves (Security for AI).",
-  },
 ];
 
 /* ---------------- PUBLICATIONS ---------------- */
@@ -72,7 +62,7 @@ const NEWS = [
  * authors uses "**Name**" to bold the PI. Keep accepted papers distinct from published papers.
  * Published-paper year is the formal publication year. For a journal accepted
  * but not yet published, use its acceptance year until publication details exist.
- * showInPublications: false counts a paper in totals but announces it only in News.
+ * showInPublications: false counts a paper in totals but leaves it out of the publication list.
  */
 const PUBLICATIONS = [
   {
@@ -83,6 +73,7 @@ const PUBLICATIONS = [
     newsId: "vulscope-emse-2026",
     titleKo: "VulScope: Software Vulnerability Detection via Local Context Analysis and Verification",
     titleEn: "VulScope: Software Vulnerability Detection via Local Context Analysis and Verification",
+    authors: "**Hyunjun Kim**, Younghan Lee, Woorim Han, Subin Yun, Kang-Won Lee, Yunheung Paek",
     venue: "Empirical Software Engineering",
     noteKo: "공동 제1저자",
     noteEn: "Co-first author",
@@ -91,6 +82,7 @@ const PUBLICATIONS = [
     year: 2026,
     type: "conference",
     status: "accepted",
+    showInPublications: false,
     titleKo: "CyBiasBench: Benchmarking Bias in LLM Agents for Cyber-Attack Scenarios",
     titleEn: "CyBiasBench: Benchmarking Bias in LLM Agents for Cyber-Attack Scenarios",
     authors: "Taein Lim, Seongyong Ju, Munhyeok Kim, **Hyunjun Kim**, Hoki Kim",
