@@ -2,7 +2,7 @@
 
 명지대학교 AI Security Lab 홈페이지입니다.
 
-**Website:** https://cstriker.github.io/ai-security-lab/
+**Website:** https://aisec.mju.ac.kr/
 
 ## Content updates
 
@@ -26,3 +26,7 @@ python -m http.server 8765 --bind 127.0.0.1
 ```
 
 Open http://127.0.0.1:8765/.
+
+## Custom domain
+
+The repository Pages custom domain is `aisec.mju.ac.kr`. The school DNS CNAME points to `cstriker.github.io`. GitHub Pages manages the HTTPS certificate, and the deployment workflow generates page metadata from the configured Pages address.
